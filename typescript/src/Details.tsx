@@ -4,7 +4,7 @@ import Carousel from './Carousel'
 import ErrorBoundary from './ErrorBoundary'
 import ThemeContext from './ThemeContext'
 import Modal from './Modal'
-import { PetAPIResponse, Animal} from './APIResponcesType'
+import { PetAPIResponse, Animal} from './APIResponseType'
 
 class Details extends Component<{ params: { id?: string }}> {
     state = {

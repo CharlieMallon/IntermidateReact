@@ -21,3 +21,8 @@ export interface PetAPIResponse {
     hasNext: boolean;
     pets: Pet[]; //this is an array of the interface we just created!
 }
+
+export interface BreedListAPIResponse {
+    animal: Animal,
+    breeds: string[],
+}
