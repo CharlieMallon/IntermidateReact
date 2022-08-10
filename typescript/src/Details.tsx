@@ -4,7 +4,7 @@ import Carousel from './Carousel'
 import ErrorBoundary from './ErrorBoundary'
 import ThemeContext from './ThemeContext'
 import Modal from './Modal'
-import { PetAPIResponse, Pet, Animal} from './APIResponcesType'
+import { PetAPIResponse, Animal} from './APIResponcesType'
 
 class Details extends Component<{ params: { id?: string }}> {
     state = {
@@ -20,6 +20,12 @@ class Details extends Component<{ params: { id?: string }}> {
     };
 
     async componentDidMount() {
+        if (!this.props.params.id){
+            //this is needed as we made id optional on line 9,
+            //it says don't request this if we don't have an id...
+            //more defensive programming!
+            return;
+        }
         const res = await fetch(
             `http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
         );
